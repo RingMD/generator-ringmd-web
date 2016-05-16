@@ -8,7 +8,7 @@ var uppercamelcase = require('uppercamelcase');
 var folderNames = {
   component: 'components',
   page: 'pages',
-  generic: ''
+  generic: '.'
 };
 
 function basePath(props) {
