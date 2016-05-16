@@ -1,4 +1,4 @@
-angular.module('<%= name %>.controller', [])
+angular.module('<%= name %>.ctrl', [])
 
 .controller('<%= _upperCamelizedName %>Ctrl', [
   '$scope',

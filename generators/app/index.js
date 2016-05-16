@@ -98,7 +98,7 @@ module.exports = yeoman.Base.extend({
 
     } else if (props.type === 'page') {
       props._modules.push(props.name + '.route');
-      props._modules.push(props.name + '.controller');
+      props._modules.push(props.name + '.ctrl');
 
       this.fs.copyTpl(
         this.templatePath('route.js'),
@@ -107,14 +107,14 @@ module.exports = yeoman.Base.extend({
       );
 
       this.fs.copyTpl(
-        this.templatePath('controller.js'),
-        this.destinationPath(props._basePath + '.controller.js'),
+        this.templatePath('ctrl.js'),
+        this.destinationPath(props._basePath + '.ctrl.js'),
         props
       );
 
       this.fs.copyTpl(
         this.templatePath('template.html.haml'),
-        this.destinationPath(props._basePath + '.controller.html.haml'),
+        this.destinationPath(props._basePath + '.ctrl.html.haml'),
         props
       );
 
