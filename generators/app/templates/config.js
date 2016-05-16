@@ -1,6 +1,6 @@
 angular.module('<%= name %>.config', [])
 
-.provider('<%= _capitalizedName %>Config', function() {
+.provider('<%= _upperCamelizedName %>Config', function() {
   this.$get = [
     function $get() {
       return {};

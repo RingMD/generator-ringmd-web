@@ -2,6 +2,8 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var camelcase = require('camelcase');
+var uppercamelcase = require('uppercamelcase');
 
 var folderNames = {
   component: 'components',
@@ -72,7 +74,10 @@ module.exports = yeoman.Base.extend({
 
     props._modules = [];
     props._basePath = basePath(props);
-    props._capitalizedName = props.name.charAt(0).toUpperCase() + props.name.slice(1);
+
+    // https://github.com/mgechev/angularjs-style-guide#naming-conventions
+    props._camelizedName = camelcase(props.name);
+    props._upperCamelizedName = uppercamelcase(props.name);
 
     if (props.type === 'component') {
       props._modules.push(props.name + '.directive');
@@ -141,9 +146,5 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(props._basePath + '.module.js'),
       props
     );
-  },
-
-  install: function () {
-    this.installDependencies();
   }
 });

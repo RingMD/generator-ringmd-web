@@ -1,6 +1,6 @@
 angular.module('<%= name %>.directive', [])
 
-.directive('<%= name %>', [
+.directive('<%= _camelizedName %>', [
   function() {
     return {
 

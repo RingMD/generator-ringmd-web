@@ -1,6 +1,6 @@
 angular.module('<%= name %>.controller', [])
 
-.controller('<%= _capitalizedName %>Ctrl', [
+.controller('<%= _upperCamelizedName %>Ctrl', [
   '$scope',
   function($scope) {
     var vm = this;

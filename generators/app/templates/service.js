@@ -1,8 +1,10 @@
 angular.module('<%= name %>.service', [])
 
-.factory('<%= _capitalizedName %>Service', [
+// please read
+// http://blog.thoughtram.io/angular/2015/07/07/service-vs-factory-once-and-for-all.html
+.service('<%= _upperCamelizedName %>', [
   function() {
-    return {};
+    this.doSomething = function doSomething() {};
   }
 ])
 

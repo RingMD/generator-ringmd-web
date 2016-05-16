@@ -1,7 +1,7 @@
 angular.module('<%= name %>', [
-<% for (var module in _modules) { %>
+<% _modules.forEach(function(module) { %>
   '<%= module %>'
-<% } %>
+<% }); %>
 ])
 
 ;
