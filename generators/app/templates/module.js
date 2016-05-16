@@ -1,5 +1,5 @@
 angular.module('<%= name %>', [
-<% for (let module in _modules) { %>
+<% for (var module in _modules) { %>
   '<%= module %>'
 <% } %>
 ])
