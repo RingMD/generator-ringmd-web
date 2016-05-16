@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-const folderNames = {
+var folderNames = {
   component: 'components',
   page: 'pages',
   generic: ''
@@ -68,7 +68,7 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    let props = this.props;
+    var props = this.props;
 
     props._modules = [];
     props._basePath = basePath(props);
