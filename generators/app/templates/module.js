@@ -1,5 +1,5 @@
-angular.module('<%= name %>', [<% _modules.forEach(function(module, i) { %>
-  '<%= module %>'<%= i < _modules.length ? ',' : '' %>
-<% }); %>])
+angular.module('<%= name %>', [
+  <%= JSON.stringify(_modules, null, 2).replace(/"/g, '\'') %>
+])
 
 ;
