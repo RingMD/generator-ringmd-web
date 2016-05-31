@@ -6,12 +6,20 @@ angular.module('<%= name %>.directive', [])
 
       restrict: 'E',
 
+      templateUrl: '<%= _basePath %>.directive.html',
+      <% if (hasController) { %>
+      scope: true,
+
+      controller: '<%= _upperCamelizedName %>Ctrl',
+
+      controllerAs: 'vm',
+
+      bindToController: {}
+      <% } else { %>
       scope: {},
 
-      templateUrl: '<%= _basePath %>.directive.html',
-
       link: function link(scope, el, attrs) {}
-
+      <% } %>
     };
   }
 ])

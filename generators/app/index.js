@@ -51,9 +51,18 @@ module.exports = yeoman.Base.extend({
         type: 'confirm',
         name: 'hasService',
         message: 'Should it have a service (DAO)?',
-        default: true,
+        default: false,
         when: function when(answers) {
           return answers.type === 'component' || answers.type === 'page';
+        }
+      },
+      {
+        type: 'confirm',
+        name: 'hasController',
+        message: 'Should it have a controller?',
+        default: true,
+        when: function when(answers) {
+          return answers.type === 'component';
         }
       },
       {
@@ -92,6 +101,16 @@ module.exports = yeoman.Base.extend({
         this.fs.copyTpl(
           this.templatePath('template.html.haml'),
           this.destinationPath(props._basePath + '.directive.html.haml'),
+          props
+        );
+      }
+
+      if (props.hasController) {
+        props._modules.push(props.name + '.ctrl');
+
+        this.fs.copyTpl(
+          this.templatePath('ctrl.js'),
+          this.destinationPath(props._basePath + '.ctrl.js'),
           props
         );
       }
