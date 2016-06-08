@@ -8,7 +8,8 @@ var uppercamelcase = require('uppercamelcase');
 var folderNames = {
   component: 'components',
   page: 'pages',
-  generic: '.'
+  service: 'services',
+  mixin: 'mixins'
 };
 
 function basePath(props) {
@@ -30,7 +31,9 @@ module.exports = yeoman.Base.extend({
         choices: [
           {name: 'Component (directive)', value: 'component'},
           {name: 'Page (route, controller, template)', value: 'page'},
-          {name: 'Generic (service, decorator, filter, etc)', value: 'generic'}
+          {name: 'Service', value: 'service'},
+          {name: 'Mixin', value: 'mixin'}
+          // TODO: Popup
         ]
       },
       {
@@ -137,9 +140,17 @@ module.exports = yeoman.Base.extend({
         props
       );
 
+    } else if (props.type === 'mixin') {
+      props._modules.push(props.name + '.mixin');
+
+      this.fs.copyTpl(
+        this.templatePath('mixin.js'),
+        this.destinationPath(props._basePath + '.mixin.js'),
+        props
+      );
     }
 
-    if (props.type === 'generic' || props.hasService) {
+    if (props.type === 'service' || props.hasService) {
       props._modules.push(props.name + '.service');
 
       // user can rename the file manually
