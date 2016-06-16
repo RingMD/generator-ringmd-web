@@ -143,6 +143,9 @@ module.exports = yeoman.Base.extend({
     } else if (props.type === 'mixin') {
       props._modules.push(props.name + '.mixin');
 
+      props._camelizedName += 'Mixin';
+      props._upperCamelizedName += 'Mixin';
+
       this.fs.copyTpl(
         this.templatePath('mixin.js'),
         this.destinationPath(props._basePath + '.mixin.js'),

@@ -1,6 +1,6 @@
 angular.module('<%= name %>.mixin', [])
 
-.factory('<%= _upperCamelizedName %>Mixin', [
+.factory('<%= _upperCamelizedName %>', [
   function() {
     return {};
   }
