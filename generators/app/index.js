@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var camelcase = require('camelcase');
 var uppercamelcase = require('uppercamelcase');
+var path = require('path');
 
 var folderNames = {
   component: 'components',
@@ -13,11 +14,33 @@ var folderNames = {
 };
 
 function basePath(props) {
-  return folderNames[props.type] + '/' + props.name + '/' + props.name;
+  // i.e. src/components/supertable/supertable
+  var p = path.join(
+    this.srcPath,
+    folderNames[props.type],
+    props.name,
+    props.name
+  );
+
+  return p;
 }
 
 module.exports = yeoman.Base.extend({
-  prompting: function () {
+
+  // http://yeoman.io/authoring/user-interactions.html
+  constructor: function() {
+    // super
+    yeoman.Base.apply(this, arguments);
+
+    this.argument('srcPath', {
+      type: String,
+      optional: true,
+      desc: 'Target source path',
+      defaults: 'src'
+    });
+  },
+
+  prompting: function() {
     // Have Yeoman greet the user.
     this.log(yosay(
       chalk.red('generator-ringmd-web') + ' for ' + chalk.green('folders and files') + '!'
@@ -85,7 +108,7 @@ module.exports = yeoman.Base.extend({
     var props = this.props;
 
     props._modules = [];
-    props._basePath = basePath(props);
+    props._basePath = basePath.call(this, props);
 
     // https://github.com/mgechev/angularjs-style-guide#naming-conventions
     props._camelizedName = camelcase(props.name);

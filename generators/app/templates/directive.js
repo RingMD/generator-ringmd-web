@@ -5,8 +5,8 @@ angular.module('<%= name %>.directive', [])
     return {
 
       restrict: 'E',
-
-      templateUrl: '<%= _basePath %>.directive.html',
+      <% if (hasTemplate) { %>
+      templateUrl: '<%= _basePath %>.directive.html',<% } %>
       <% if (hasController) { %>
       scope: true,
 
