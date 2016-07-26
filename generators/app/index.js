@@ -125,8 +125,8 @@ module.exports = yeoman.Base.extend({
 
       if (props.hasTemplate) {
         this.fs.copyTpl(
-          this.templatePath('template.html.haml'),
-          this.destinationPath(props._basePath + '.directive.html.haml'),
+          this.templatePath('template.jade'),
+          this.destinationPath(props._basePath + '.directive.jade'),
           props
         );
       }
@@ -158,8 +158,8 @@ module.exports = yeoman.Base.extend({
       );
 
       this.fs.copyTpl(
-        this.templatePath('template.html.haml'),
-        this.destinationPath(props._basePath + '.ctrl.html.haml'),
+        this.templatePath('template.jade'),
+        this.destinationPath(props._basePath + '.ctrl.jade'),
         props
       );
 

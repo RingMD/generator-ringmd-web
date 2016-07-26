@@ -1,7 +1,6 @@
 angular.module('<%= name %>.route', [])
 
-.config([
-  '$routeProvider',
+.config(
   function($routeProvider) {
     $routeProvider.when(PathProvider.get('<%= name %>_path'), {
       title: '<%= _upperCamelizedName %>',
@@ -11,7 +10,6 @@ angular.module('<%= name %>.route', [])
       security: 'requireAuthenticated',
       resolve: {}
     });
-  }
-])
+  })
 
 ;

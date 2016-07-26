@@ -1,6 +1,6 @@
 angular.module('<%= name %>.directive', [])
 
-.directive('<%= _camelizedName %>', [
+.directive('<%= _camelizedName %>',
   function() {
     return {
 
@@ -21,7 +21,6 @@ angular.module('<%= name %>.directive', [])
       link: function link(scope, el, attrs) {}
       <% } %>
     };
-  }
-])
+  })
 
 ;
