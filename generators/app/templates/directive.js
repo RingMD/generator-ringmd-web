@@ -6,7 +6,7 @@ angular.module('<%= name %>.directive', [])
 
       restrict: 'E',
       <% if (hasTemplate) { %>
-      templateUrl: '<%= _basePath %>.directive.html',<% } %>
+      templateUrl: '<%= _templatePath %>.directive.html',<% } %>
       <% if (hasController) { %>
       scope: true,
 

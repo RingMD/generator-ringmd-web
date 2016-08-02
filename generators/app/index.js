@@ -110,6 +110,9 @@ module.exports = yeoman.Base.extend({
     props._modules = [];
     props._basePath = basePath.call(this, props);
 
+    // cross-platform (/ or \)
+    props._templatePath = props._basePath.replace(this.srcPath + path.sep, '');
+
     // https://github.com/mgechev/angularjs-style-guide#naming-conventions
     props._camelizedName = camelcase(props.name);
     props._upperCamelizedName = uppercamelcase(props.name);
