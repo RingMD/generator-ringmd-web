@@ -6,8 +6,9 @@ angular.module('<%= name %>.mixin', [])
   because it's effectively an Array to be called thru $injector.invoke()
   See `$rootScope.getVM` in ringmd.module.js
 */
-.value('<%= _upperCamelizedName %>Mixin', [
-  function() {
+.value('<%= _upperCamelizedName %>', [
+  '$scope',
+  function($scope) {
     return {};
   }
 ])
