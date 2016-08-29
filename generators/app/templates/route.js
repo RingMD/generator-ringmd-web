@@ -4,7 +4,7 @@ angular.module('<%= name %>.route', [])
   function($routeProvider) {
     $routeProvider.when(PathProvider.get('<%= name %>_path'), {
       title: '<%= _upperCamelizedName %>',
-      templateUrl: '<%= _basePath %>.ctrl.html',
+      templateUrl: '<%= _templatePath %>.ctrl.html',
       controller: '<%= _upperCamelizedName %>Ctrl',
       controllerAs: 'vm',
       security: 'requireAuthenticated',

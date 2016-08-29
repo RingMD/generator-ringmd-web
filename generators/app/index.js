@@ -36,7 +36,7 @@ module.exports = yeoman.Base.extend({
       type: String,
       optional: true,
       desc: 'Target source path',
-      defaults: 'src'
+      defaults: 'src/app'
     });
   },
 
