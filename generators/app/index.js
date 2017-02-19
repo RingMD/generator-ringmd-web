@@ -122,7 +122,7 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     var props = this.props;
 
-    if (prop.isExtension && props.extensionName) {
+    if (props.isExtension && props.extensionName) {
       this.srcPath = 'extensions/' + props.extensionName + '/app';
     }
 

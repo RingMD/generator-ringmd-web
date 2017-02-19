@@ -1,6 +1,6 @@
 {
   "name": "generator-ringmd-web",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Yeoman generator for RingMD Web (Front-End) modules",
   "homepage": "",
   "author": {
