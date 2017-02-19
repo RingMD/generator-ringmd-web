@@ -60,6 +60,21 @@ module.exports = yeoman.Base.extend({
         ]
       },
       {
+        type: 'confirm',
+        name: 'isExtension',
+        message: 'Is it for an extension? I.e. ringwell',
+        default: false
+      },
+      {
+        type: 'input',
+        name: 'extensionName',
+        message: 'What is the extension name?',
+        default: 'ringwell',
+        when: function when(answers) {
+          return answers.isExtension;
+        }
+      },
+      {
         type: 'input',
         name: 'name',
         message: 'What is the name?'
@@ -106,6 +121,10 @@ module.exports = yeoman.Base.extend({
 
   writing: function () {
     var props = this.props;
+
+    if (prop.isExtension && props.extensionName) {
+      this.srcPath = 'extensions/' + props.extensionName + '/app';
+    }
 
     props._modules = [];
     props._basePath = basePath.call(this, props);
